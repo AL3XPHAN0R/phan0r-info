@@ -1,0 +1,258 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #faf8f4;
+  --text: #3a3732;
+  --text-secondary: #5a554e;
+  --text-muted: #7a756d;
+  --text-very-muted: #a09a91;
+  --text-pale: #c8c3b8;
+  --tag-bg: #e8e4dc;
+  --tag-text: #6e6860;
+  --hover-brown: #8a6f4e;
+  --btn-bg: #3a3732;
+  --btn-text: #f5f2ec;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ── Header ── */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.site-name {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--text);
+}
+
+/* ── Bio ── */
+
+.bio {
+  margin-bottom: 2.25rem;
+}
+
+.bio p {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+/* ── Newsletter ── */
+
+.newsletter-section {
+  margin-bottom: 3.5rem;
+}
+
+.newsletter-cta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--tag-bg);
+}
+
+.newsletter-cta p {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--tag-bg);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+  outline: none;
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--text-very-muted);
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: var(--text-very-muted);
+}
+
+.newsletter-form button {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 0.5rem 1rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.85;
+}
+
+/* ── Liste d'articles ── */
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-very-muted);
+  margin-bottom: 1.25rem;
+}
+
+.article-list {
+  list-style: none;
+}
+
+.article-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 4px;
+  padding: 2px 7px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.article-list a {
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.article-list a:hover {
+  color: var(--hover-brown);
+}
+
+/* ── Article ── */
+
+article h1 {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-bottom: 2rem;
+}
+
+article p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+article h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+article a {
+  color: var(--hover-brown);
+}
+
+/* ── Pages statiques ── */
+
+.page-content h1 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.page-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.page-content a {
+  color: var(--hover-brown);
+}
+
+/* ── Footer ── */
+
+footer {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+.copyright {
+  font-size: 12px;
+  color: var(--text-pale);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  nav {
+    gap: 1rem;
+  }
+}

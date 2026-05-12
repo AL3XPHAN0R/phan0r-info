@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<article>
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+  <div class="newsletter-cta">
+    <p>Vous avez aimé cet article ? Inscrivez-vous à la newsletter.</p>
+    {# Remplacer BEEHIIV_PUBLICATION_ID par l'ID trouvé dans Beehiiv → Settings → Publication #}
+    <form action="https://embeds.beehiiv.com/BEEHIIV_PUBLICATION_ID" method="POST" target="_blank" class="newsletter-form">
+      <input type="email" name="email" placeholder="votre@email.com" required>
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
+</article>

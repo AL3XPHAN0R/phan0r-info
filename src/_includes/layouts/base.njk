@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml">
+</head>
+<body>
+  <header>
+    <a href="/" class="site-name">{{ site.author }}</a>
+    <nav>
+      <a href="/about/">À propos</a>
+      <a href="/contact/">Contact</a>
+      <a href="/recherche/">Recherche</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="{{ site.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/atom.xml">RSS</a>
+    </div>
+    <p class="copyright">© {{ "" | year }} {{ site.author }}</p>
+  </footer>
+</body>
+</html>
