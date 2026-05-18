@@ -130,6 +130,113 @@ nav a:hover {
   opacity: 0.85;
 }
 
+/* ── MailerLite overrides ── */
+
+.ml-embedded .ml-form-embed,
+.ml-embedded .ml-form-embedWrapper,
+.ml-embedded .ml-form-embedBody {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.ml-embedded .ml-form-embedContent {
+  display: none !important;
+}
+
+.ml-embedded .ml-form-formContent {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 0.5rem !important;
+  padding: 0 !important;
+}
+
+.ml-embedded .ml-form-fieldRow {
+  flex: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ml-embedded .ml-field-group {
+  margin: 0 !important;
+}
+
+.ml-embedded input[type="email"] {
+  width: 100% !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  padding: 0.5rem 0.75rem !important;
+  border: 1px solid var(--tag-bg) !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border-radius: 4px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+}
+
+.ml-embedded input[type="email"]:focus {
+  border-color: var(--text-very-muted) !important;
+}
+
+.ml-embedded input[type="email"]::placeholder {
+  color: var(--text-very-muted) !important;
+}
+
+.ml-embedded .ml-form-embedSubmit {
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ml-embedded button[type="submit"].primary {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  padding: 0.5rem 1rem !important;
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+}
+
+.ml-embedded button[type="submit"].primary:hover {
+  opacity: 0.85 !important;
+  background: var(--btn-bg) !important;
+}
+
+.ml-embedded .ml-form-successBody {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.ml-embedded .ml-form-successContent h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: var(--text-secondary) !important;
+}
+
+.ml-embedded .ml-form-successContent p {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  .ml-embedded .ml-form-formContent {
+    flex-direction: column !important;
+  }
+}
+
 /* ── Liste d'articles ── */
 
 .section-label {
