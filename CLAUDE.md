@@ -37,7 +37,7 @@ But principal : écrire pour penser et documenter son parcours. Construire une c
 | Templates | Nunjucks (défaut Eleventy) |
 | CSS | Fait à la main — pas de framework |
 | Hébergement | **GitHub Pages** (gratuit) |
-| Newsletter | **Beehiiv** (choix définitif) |
+| Newsletter | **MailerLite** (remplace Beehiiv) |
 | Analytics | À choisir : Umami ou Fathom (privacy-first) |
 
 Pas de CMS. Pas de base de données. Pas de JS frontend framework.
@@ -103,7 +103,8 @@ Site visible sur `http://localhost:8080`.
 **Note :** si le DNS check reste bloqué sur "in progress" dans GitHub Settings → retirer le domaine et le re-saisir pour forcer une nouvelle vérification.
 
 ### ⏳ Étape 4 — Newsletter et analytics (à faire)
-- Newsletter : **Beehiiv** — remplacer `BEEHIIV_PUBLICATION_ID` dans `src/index.njk` et `src/_includes/layouts/article.njk` par l'ID trouvé dans Beehiiv → Settings → Publication
+- Newsletter : **MailerLite** (remplace Beehiiv) — remplacer `MAILERLITE_ACCOUNT_ID` et `MAILERLITE_FORM_ID` dans `src/index.njk` et `src/_includes/layouts/article.njk` par les valeurs trouvées dans MailerLite → Forms → Embedded forms → onglet HTML
+- Configurer le RSS-to-email dans MailerLite : Automations → Create automation → RSS campaign → URL du flux : `https://phanor.info/atom.xml`
 - Analytics : choisir entre **Umami** (auto-hébergé) ou **Fathom** (SaaS), ajouter le script dans `base.njk`
 
 ---
