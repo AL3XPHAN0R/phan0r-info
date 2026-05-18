@@ -6,11 +6,6 @@ layout: layouts/base.njk
   {{ content | safe }}
   <div class="newsletter-cta">
     <p>Vous avez aimé cet article ? Inscrivez-vous à l'infolettre.</p>
-    {# Remplacer MAILERLITE_ACCOUNT_ID et MAILERLITE_FORM_ID par vos valeurs MailerLite #}
-    {# Forms → Embedded forms → votre formulaire → onglet HTML #}
-    <form action="https://assets.mailerlite.com/jsonp/MAILERLITE_ACCOUNT_ID/forms/MAILERLITE_FORM_ID/subscribe" method="POST" class="newsletter-form">
-      <input type="email" name="fields[email]" placeholder="votre@email.com" required>
-      <button type="submit">S'inscrire</button>
-    </form>
+    <div class="ml-embedded" data-form="OMwffF"></div>
   </div>
 </article>
