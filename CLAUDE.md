@@ -90,12 +90,17 @@ npm start
 ```
 Site visible sur `http://localhost:8080`.
 
-### ⏳ Étape 3 — Mise en place GitHub Pages (à faire)
-- [ ] Créer un repo GitHub public (ex. `phanor-info`)
-- [ ] Pousser le code sur la branche `main`
-- [ ] Dans les paramètres du repo → *Pages* → Source : **GitHub Actions**
-- [ ] Dans les paramètres → *Pages* → *Custom domain* → entrer `phanor.info`
-- [ ] Chez le registraire de domaine : ajouter les enregistrements DNS de GitHub
+### ✅ Étape 3 — Mise en place GitHub Pages (terminée — 2026-05-18)
+- [x] Repo GitHub public créé : `AL3XPHAN0R/phan0r-info`
+- [x] Code poussé sur la branche `main`
+- [x] GitHub Pages source : **GitHub Actions** — build au vert
+- [x] Namecheap — 4 enregistrements A + CNAME ajoutés, URL Redirect Record supprimé (conflit)
+- [x] DNS propagé — `phanor.info` pointe vers les IPs GitHub Pages (185.199.x.x)
+- [x] Custom domain `phanor.info` configuré dans GitHub Pages Settings
+- [x] Certificat HTTPS émis — Enforce HTTPS activé
+- [x] Site en ligne sur `https://phanor.info`
+
+**Note :** si le DNS check reste bloqué sur "in progress" dans GitHub Settings → retirer le domaine et le re-saisir pour forcer une nouvelle vérification.
 
 ### ⏳ Étape 4 — Newsletter et analytics (à faire)
 - Newsletter : **Beehiiv** — remplacer `BEEHIIV_PUBLICATION_ID` dans `src/index.njk` et `src/_includes/layouts/article.njk` par l'ID trouvé dans Beehiiv → Settings → Publication
@@ -109,7 +114,7 @@ Site visible sur `http://localhost:8080`.
 - Flux d'articles : **unique**, avec étiquettes Perso / Pro (pas de sections séparées)
 - Pas de dates visibles sur les articles
 - Pas de bordures entre les sections
-- Navigation header : À propos · Contact · Recherche
+- Navigation header : **supprimée pour l'instant** — seul le nom reste (aligné à gauche)
 - Footer : LinkedIn · RSS · copyright
 - Polices : Lora (sérif) pour le nom, Inter pour tout le reste
 - Palette : tons ivoire et gris-brun chauds (voir `STRUCTURE.md`)

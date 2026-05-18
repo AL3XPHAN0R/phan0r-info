@@ -2,19 +2,19 @@
 layout: layouts/base.njk
 ---
 <section class="bio">
-  <p>Montréalais en transition vers le courtage en assurance. J'écris pour penser — sur les livres, l'IA, la finance et ce que j'apprends en chemin.</p>
+  <p>J'écris pour mieux réfléchir : sur les lectures que je fais, l'IA, la finance et ce que j'apprends en chemin.</p>
 </section>
 
 <section class="newsletter-section">
   {# Remplacer BEEHIIV_PUBLICATION_ID par l'ID trouvé dans Beehiiv → Settings → Publication #}
   <form action="https://embeds.beehiiv.com/BEEHIIV_PUBLICATION_ID" method="POST" target="_blank" class="newsletter-form">
     <input type="email" name="email" placeholder="votre@email.com" required>
-    <button type="submit">S'inscrire à la newsletter</button>
+    <button type="submit">S'inscrire à l'infolettre</button>
   </form>
 </section>
 
 <section class="articles">
-  <p class="section-label">Écrits</p>
+  <p class="section-label">BILLETS</p>
   <ul class="article-list">
     {% for post in collections.articles %}
     <li>
