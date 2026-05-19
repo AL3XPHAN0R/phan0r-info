@@ -67,15 +67,15 @@ Structure complète créée. Fichiers clés :
 | `src/recherche.njk` | Page Recherche (placeholder) |
 | `src/atom.njk` | Flux RSS → génère `/atom.xml` |
 | `src/CNAME` | Domaine `phanor.info` pour GitHub Pages |
-| `src/journal/journal.json` | Defaults articles Perso (layout + tag) |
+| `src/perso/perso.json` | Defaults articles Perso (layout + tag) |
 | `src/pro/pro.json` | Defaults articles Pro (layout + tag) |
 | `.github/workflows/deploy.yml` | CI/CD — build + deploy automatique sur GitHub Pages |
 
 **Articles d'exemple créés :**
-- `src/journal/pourquoi-j-ecris.md` (tag Perso)
+- `src/perso/pourquoi-j-ecris.md` (tag Perso)
 - `src/pro/debuter-en-assurance.md` (tag Pro)
 
-**Pour ajouter un article :** créer un fichier `.md` dans `src/journal/` ou `src/pro/` avec un front matter minimal :
+**Pour ajouter un article :** créer un fichier `.md` dans `src/perso/` ou `src/pro/` avec un front matter minimal :
 ```yaml
 ---
 title: Titre de l'article
@@ -102,10 +102,28 @@ Site visible sur `http://localhost:8080`.
 
 **Note :** si le DNS check reste bloqué sur "in progress" dans GitHub Settings → retirer le domaine et le re-saisir pour forcer une nouvelle vérification.
 
-### ⏳ Étape 4 — Newsletter et analytics (à faire)
-- Newsletter : **MailerLite** (remplace Beehiiv) — remplacer `MAILERLITE_ACCOUNT_ID` et `MAILERLITE_FORM_ID` dans `src/index.njk` et `src/_includes/layouts/article.njk` par les valeurs trouvées dans MailerLite → Forms → Embedded forms → onglet HTML
-- Configurer le RSS-to-email dans MailerLite : Automations → Create automation → RSS campaign → URL du flux : `https://phanor.info/atom.xml`
-- Analytics : choisir entre **Umami** (auto-hébergé) ou **Fathom** (SaaS), ajouter le script dans `base.njk`
+### ✅ Étape 4a — Intégration MailerLite (terminée — 2026-05-18)
+- [x] Script `universal.js` chargé dans `base.njk` (account `2359319`)
+- [x] Formulaire embedded `OMwffF` intégré dans `src/index.njk` (section newsletter) et `src/_includes/layouts/article.njk` (CTA en bas d'article)
+- [x] CSS MailerLite overridé dans `style.css` pour coller à l'esthétique du site
+- [x] reCAPTCHA retiré (désactivé côté MailerLite, inutile)
+- [x] Courriel personnalisé `alexandre@phanor.info` configuré (2026-05-18) :
+  - Namecheap Email Forwarding activé → `alexandrephanor@gmail.com`
+  - Domaine `phanor.info` authentifié dans MailerLite (DKIM + SPF + vérification)
+  - DNS Namecheap : CNAME DKIM, TXT vérification, TXT SPF fusionné ajoutés
+  - **Note :** doublon SPF entre HOST RECORDS et MAIL SETTINGS (verrouillé) — cosmétique, ne cause pas de problèmes en pratique
+  - **À confirmer :** tester la réception d'un courriel envoyé à `alexandre@phanor.info` (DNS en propagation, délai jusqu'à 4h)
+  - **À faire :** Settings → Default settings → "From email" → mettre `alexandre@phanor.info`
+
+### ⏳ Étape 4b — RSS-to-email MailerLite (en attente)
+- Nécessite un **forfait MailerLite payant**
+- À configurer quand quelques articles seront publiés
+- Chemin : Automations → Create automation → RSS campaign → URL : `https://phanor.info/atom.xml`
+
+### ⏳ Étape 4c — Analytics (mis sur la glace)
+- À intégrer quand le site aura du trafic
+- Options envisagées : **Umami** (auto-hébergé) ou **Fathom** (SaaS, privacy-first)
+- Intégration : ajouter le script dans `base.njk`
 
 ---
 
@@ -130,7 +148,7 @@ Site visible sur `http://localhost:8080`.
 /about             → À propos
 /contact           → Contact
 /recherche         → Recherche / ressources
-/journal/[slug]    → Articles Perso
+/perso/[slug]    → Articles Perso
 /pro/[slug]        → Articles Pro
 /atom              → Flux RSS
 ```

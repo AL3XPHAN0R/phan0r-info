@@ -4,7 +4,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addCollection("articles", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob(["src/journal/**/*.md", "src/pro/**/*.md"])
+      .getFilteredByGlob(["src/perso/**/*.md", "src/pro/**/*.md"])
       .reverse();
   });
 

@@ -11,7 +11,7 @@ Document de référence pour le style visuel et la structure du site.
 /about             → À propos (bio courte)
 /contact           → Contact
 /recherche         → Page Recherche (ressources, projets, liens curatés)
-/journal/[slug]    → Articles personnels (Perso)
+/perso/[slug]    → Articles personnels (Perso)
 /pro/[slug]        → Articles professionnels (Pro)
 /atom              → Flux RSS
 ```
@@ -40,7 +40,7 @@ Document de référence pour le style visuel et la structure du site.
 - Page de ressources curatées, liens, projets
 - Structure à définir lors d'une prochaine étape
 
-### Articles `/journal/[slug]` et `/pro/[slug]`
+### Articles `/perso/[slug]` et `/pro/[slug]`
 - Titre en `<h1>`
 - Corps du texte (Markdown)
 - CTA newsletter en bas de chaque article
