@@ -1,5 +1,6 @@
 ---
 title: Débuter en assurance — ce que les premiers mois m'ont appris
+eleventyExcludeFromCollections: true
 ---
 
 Devenir courtier en assurance, c'est apprendre un nouveau langage. Primes, franchises, couvertures, exclusions — chaque mot compte et chaque mot peut coûter cher à mal comprendre.
