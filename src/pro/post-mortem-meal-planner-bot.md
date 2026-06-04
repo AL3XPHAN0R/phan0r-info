@@ -2,6 +2,8 @@
 title: Post mortem — Meal Planner agent
 ---
 
+Ce post mortem retrace le développement d'un assistant de planification de repas hebdomadaire sur Telegram, construit avec Claude API et déployé sur Railway. C'est autant un bilan technique qu'une réflexion honnête sur ce que signifie vraiment développer avec une IA — les gains, les frictions, et les leçons qui ne s'apprennent qu'en conditions réelles.
+
 ## 01 — Mise en contexte
 
 ### La genèse : un jeudi soir de découragement
@@ -149,18 +151,23 @@ L'IA accélère l'exécution. Elle ne remplace pas le jugement.
 ### Les grandes phases
 
 **Phase 1 — Exploration et définition du problème**
+
 Observation du problème chez Véronique et Valérie. Accumulation d'information sur les composantes de la friction. Décision de construire une solution.
 
 **Phase 2 — Architecture et setup**
+
 Choix du stack, création du repo GitHub, configuration de Railway et PostgreSQL, mise en place de la structure ICM (CLAUDE.md, CONTEXT.md, stages/).
 
 **Phase 3 — Développement des stages**
+
 Construction itérative des 5 handlers, onboarding en premier (Stage 00), puis extraction de recettes (Stage 01), puis le plus complexe : la planification (Stage 02).
 
 **Phase 4 — La crise du déploiement**
+
 La longue période de débogage autour du malentendu Railway/GitHub. Trentaine d'allers-retours. Épuisement du quota de tokens. Résolution et création de `feedback_no_assumptions.md`.
 
 **Phase 5 — Stabilisation et seed de données**
+
 Ajout de 10 recettes en base via `scripts/seed_recettes.py`. Tests validés pour les Stages 00, 01 et 02. Affinage des Stages 03 et 04 (en cours au moment de la rédaction).
 
 ### Moments de doute
@@ -180,12 +187,15 @@ La phase 4 a été le vrai test de persévérance. Quand Claude Code résiste, q
 ### Top 3 des problèmes les plus coûteux
 
 **1. Le malentendu Railway/GitHub — le plus coûteux**
+
 Claude Code assumait que les tests locaux se reflétaient sur Telegram. Faux. Le bot ne répond qu'à ce qui est déployé sur Railway, et Railway ne déploie que ce qui est pushé sur GitHub. Plusieurs centaines de milliers de tokens brûlés avant résolution. Fix : documentation explicite de l'architecture de déploiement + règle `feedback_no_assumptions.md`.
 
 **2. La dérive du contexte en Stage 02**
+
 La planification hebdomadaire est le stage le plus conversationnel — Claude devait tenir compte des contraintes exprimées, de l'historique des 3 dernières semaines, des recettes disponibles, et des préférences du profil. Sans discipline de contexte, les réponses dérivaient. Fix : structure de prompt en couches (ICM), chargement sélectif des fichiers Layer 3.
 
 **3. L'encoding Windows (cp1252)**
+
 Le terminal Windows affichait les accents en caractères garbled dans les `print()`. Pas un bug de données — les données en base et en JSON étaient correctement en UTF-8 — mais un bug d'affichage qui rendait le débogage confus. Fix : identifier et ignorer ce problème d'affichage spécifique au terminal Windows, valider les données directement en base.
 
 ### Friction liée à l'infrastructure
@@ -278,30 +288,30 @@ La méthodologie ICM est suffisamment générique pour s'adapter à n'importe qu
 
 ### Avant de coder
 
-- [ ] Documenter l'architecture de déploiement complète dans `CLAUDE.md` — local vs staging vs production
-- [ ] Définir le rôle exact de Claude dans le système (orchestrateur, extracteur, générateur, validateur ?)
-- [ ] Créer `feedback_no_assumptions.md` ou équivalent dès le jour 1 — forcer la vérification avant l'affirmation
-- [ ] Identifier les données persistantes et concevoir leur stratégie de stockage avant d'écrire les handlers
-- [ ] Délimiter le MVP strictement — lister explicitement ce qui n'est *pas* dans la v1.0
+- Documenter l'architecture de déploiement complète dans `CLAUDE.md` — local vs staging vs production
+- Définir le rôle exact de Claude dans le système (orchestrateur, extracteur, générateur, validateur ?)
+- Créer `feedback_no_assumptions.md` ou équivalent dès le jour 1 — forcer la vérification avant l'affirmation
+- Identifier les données persistantes et concevoir leur stratégie de stockage avant d'écrire les handlers
+- Délimiter le MVP strictement — lister explicitement ce qui n'est *pas* dans la v1.0
 
 ### Pendant le développement
 
-- [ ] Un stage = un job = un fichier de contrat (`CONTEXT.md`) — ne jamais mélanger les responsabilités
-- [ ] Valider chaque stage en isolation avant de passer au suivant
-- [ ] Documenter les comportements imprévus au fur et à mesure — ne pas les laisser dans la mémoire de session
-- [ ] Surveiller la consommation de tokens sur les sessions longues — un malentendu non résolu coûte cher
-- [ ] Challenger Claude Code quand quelque chose ne fonctionne pas après 3 tentatives — exiger des preuves, pas des affirmations
+- Un stage = un job = un fichier de contrat (`CONTEXT.md`) — ne jamais mélanger les responsabilités
+- Valider chaque stage en isolation avant de passer au suivant
+- Documenter les comportements imprévus au fur et à mesure — ne pas les laisser dans la mémoire de session
+- Surveiller la consommation de tokens sur les sessions longues — un malentendu non résolu coûte cher
+- Challenger Claude Code quand quelque chose ne fonctionne pas après 3 tentatives — exiger des preuves, pas des affirmations
 
 ### Après le projet
 
-- [ ] Rédiger le post mortem pendant que le contexte est frais
-- [ ] Extraire la checklist réutilisable (ce fichier)
-- [ ] Documenter les prompts qui ont le mieux fonctionné par type de tâche
-- [ ] Tester avec un utilisateur réel avant de considérer la v1.0 comme complète
-- [ ] Planifier la v1.1 seulement après avoir reçu les premiers retours utilisateur
+- Rédiger le post mortem pendant que le contexte est frais
+- Extraire la checklist réutilisable (ce fichier)
+- Documenter les prompts qui ont le mieux fonctionné par type de tâche
+- Tester avec un utilisateur réel avant de considérer la v1.0 comme complète
+- Planifier la v1.1 seulement après avoir reçu les premiers retours utilisateur
 
 ---
 
-*Post mortem rédigé le 4 juin 2026.*
+*Post mortem rédigé le 4 juin 2026. Basé sur mon journal de développement IA*
 *Stack : Python · python-telegram-bot · Claude API · PostgreSQL · Railway · GitHub*
 *Méthodologie : ICM (Interpretable Context Methodology)*
