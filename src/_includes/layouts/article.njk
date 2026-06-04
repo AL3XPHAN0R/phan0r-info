@@ -2,6 +2,9 @@
 layout: layouts/base.njk
 ---
 <article>
+  {% if image %}
+  <img class="article-hero" src="{{ image }}" alt="{{ image_alt or title }}">
+  {% endif %}
   <h1>{{ title }}</h1>
   {{ content | safe }}
   <div class="newsletter-cta">

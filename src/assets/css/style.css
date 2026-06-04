@@ -72,6 +72,16 @@ nav a:hover {
   color: var(--text-secondary);
 }
 
+/* ── Article hero image ── */
+
+.article-hero {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
 /* ── Newsletter ── */
 
 .newsletter-section {
