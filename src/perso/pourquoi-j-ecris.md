@@ -1,5 +1,6 @@
 ---
 title: Pourquoi j'écris
+date: 2026-05-19
 ---
 
 L'écriture est une façon de ralentir. De forcer une pensée vague à prendre forme, à occuper de l'espace, à se défendre contre la contradiction.

@@ -1,6 +1,7 @@
 ---
 title: J'ai construit un outil pour arrêter de gaspiller des tokens — et il fonctionne à 100% sans IA
 description: Comment j'ai créé toMD, un outil Python local qui convertit des fichiers Word, PDF et PowerPoint en Markdown allégé — réduisant de 88 % leur poids en tokens avant de les envoyer à un LLM.
+date: 2026-06-08
 ---
 
 Il y a quelques semaines, j'ai dépassé ma limite de tokens pour la première fois.

@@ -107,13 +107,14 @@ Site visible sur `http://localhost:8080`.
 - [x] Formulaire embedded `OMwffF` intégré dans `src/index.njk` (section newsletter) et `src/_includes/layouts/article.njk` (CTA en bas d'article)
 - [x] CSS MailerLite overridé dans `style.css` pour coller à l'esthétique du site
 - [x] reCAPTCHA retiré (désactivé côté MailerLite, inutile)
-- [x] Courriel personnalisé `alexandre@phanor.info` configuré (2026-05-18) :
-  - Namecheap Email Forwarding activé → `alexandrephanor@gmail.com`
+- [x] Courriel personnalisé `alexandre@phanor.info` configuré et validé (2026-05-19) :
+  - Namecheap Email Forwarding actif → `alexandrephanor@gmail.com`
   - Domaine `phanor.info` authentifié dans MailerLite (DKIM + SPF + vérification)
-  - DNS Namecheap : CNAME DKIM, TXT vérification, TXT SPF fusionné ajoutés
-  - **Note :** doublon SPF entre HOST RECORDS et MAIL SETTINGS (verrouillé) — cosmétique, ne cause pas de problèmes en pratique
-  - **À confirmer :** tester la réception d'un courriel envoyé à `alexandre@phanor.info` (DNS en propagation, délai jusqu'à 4h)
-  - **À faire :** Settings → Default settings → "From email" → mettre `alexandre@phanor.info`
+  - DNS Namecheap : CNAME DKIM, TXT vérification, TXT SPF fusionné dans MAIL SETTINGS
+  - MX records : `eforward1-5.registrar-servers.com` — propagation confirmée
+  - Forwarding testé et fonctionnel (test Outlook → Gmail ✅)
+  - "From email" MailerLite → `alexandre@phanor.info` ✅
+  - **Note :** envoyer depuis Gmail vers soi-même via le forward est bloqué par Gmail (boucle) — comportement normal
 
 ### ⏳ Étape 4b — RSS-to-email MailerLite (en attente)
 - Nécessite un **forfait MailerLite payant**

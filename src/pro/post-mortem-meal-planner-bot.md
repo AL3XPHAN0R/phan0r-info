@@ -1,5 +1,6 @@
 ---
 title: Post mortem — Meal Planner agent
+date: 2026-06-04
 ---
 
 Ce post mortem retrace le développement d'un assistant de planification de repas hebdomadaire sur Telegram, construit avec Claude API et déployé sur Railway. C'est autant un bilan technique qu'une réflexion honnête sur ce que signifie vraiment développer avec une IA — les gains, les frictions, et les leçons qui ne s'apprennent qu'en conditions réelles.
